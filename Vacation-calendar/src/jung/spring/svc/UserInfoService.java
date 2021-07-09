@@ -8,8 +8,8 @@ public interface UserInfoService {
 
 	List<UserInfoVO> getVacations(); // »ﬁ∞° ¡∂»∏
 
-	boolean addVacation(String vacation_name, int vacation_month, int vacation_day); // »ﬁ∞° √ﬂ∞°
+	void addVacation(String vacation_name, int vacation_month, int vacation_day); // »ﬁ∞° √ﬂ∞°
 
-	boolean removeVacation(String vacation_name, int vacation_month, int vacation_day); // »ﬁ∞° ªË¡¶
+	void removeVacation(String vacation_name, int vacation_month, int vacation_day); // »ﬁ∞° ªË¡¶
 	
 }

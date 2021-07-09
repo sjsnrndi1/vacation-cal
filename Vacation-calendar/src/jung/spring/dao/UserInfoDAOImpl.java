@@ -1,9 +1,7 @@
 package jung.spring.dao;
 
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
-
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -26,10 +24,9 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 	}
 	/***** ÈÞ°¡ Á¶È¸ *****/
 	
-	/***** ÈÞ°¡ Ãß°¡ 
-	 * @param response *****/
+	/***** ÈÞ°¡ Ãß°¡ *****/
 	@Override
-	public boolean addVacation(String vacation_name, int vacation_month, int vacation_day) {
+	public void addVacation(String vacation_name, int vacation_month, int vacation_day) {
 		// TODO Auto-generated method stub
 		MemberMapper vacationMapper = sqlSession.getMapper(MemberMapper.class);
 		ArrayList<UserInfoVO> vacationList = vacationMapper.getVacations();
@@ -42,7 +39,6 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 				overlapCheck = true;
 			}
 		}
-		System.out.println("µµÂø");
 		if(overlapCheck) {
 			HashMap<Object, Object> map = new HashMap<Object, Object>();
 			map.put("vacation_name", vacation_name);
@@ -50,14 +46,13 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 			map.put("vacation_day", vacation_day);
 			vacationMapper.addVacation(map);
 		}
-		return overlapCheck;
 	}
 	/***** ÈÞ°¡ Ãß°¡ *****/
 	
 	/***** ÈÞ°¡ »èÁ¦ 
 	 * @return *****/
 	@Override
-	public boolean removeVacation(String vacation_name, int vacation_month, int vacation_day) {
+	public void removeVacation(String vacation_name, int vacation_month, int vacation_day) {
 		// TODO Auto-generated method stub
 		MemberMapper vacationMapper = sqlSession.getMapper(MemberMapper.class);
 		ArrayList<UserInfoVO> vacationList = vacationMapper.getVacations();
@@ -77,7 +72,6 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 			map.put("vacation_day", vacation_day);
 			vacationMapper.removeVacation(map);
 		}
-		return overlapCheck;
 	}
 	/***** ÈÞ°¡ »èÁ¦ *****/
 }
