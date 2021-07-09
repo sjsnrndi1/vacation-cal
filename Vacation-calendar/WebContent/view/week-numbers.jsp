@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset='utf-8' />
+<title>휴가 일정표</title>
 <link href="http://fonts.googleapis.com/earlyaccess/hanna.css" rel="stylesheet"> <!-- 폰트 -->
 <link href = "http://sjsnrndi12.dothome.co.kr/lib/main.css" rel = "stylesheet" />
 <script src = "http://sjsnrndi12.dothome.co.kr/lib/main.js"></script>
@@ -112,57 +113,72 @@
 <style>
 
 	body {
-		margin: 40px 10px;
+		height : 100vh;
 		padding: 0;
 		font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
 		font-size: 14px;
+		overflow : hidden;
 	}
-	
 	#calendar {
-		max-width: 1100px;
+		width : 100vw;
+		height : 100vh;
 		margin: 0 auto;
+		padding-left: 15%;
+		padding-right: 15%;
+		float : left;
 	}
-	
+	.input-delete-title {
+		position : relative;
+		height : auto;
+		top : 0px;
+		left : 0px;
+		margin : 0px;
+		padding : 0px;
+		width : 49.1%;
+		float : left;
+	}
 	.vacation_input_button {
-		position : absolute;
-		top : 40px;
-		left : 1183px;
-		width : 62px;
-		height : 35px;
+		width : 3vw;
+		height : 3vh;
+		float : right;
+		background-color : rgb(44, 62, 80);
+		color : white;
+		border-style : solid;
 		border-radius : 3px;
-		background-color : white;
-		color : black;
-		font-size : 150%;
-		font-family: 'Hanna';
+		border-color : rgb(44, 62, 80);
 	}
-
 	.vacation_delete_button {
-		position : absolute;
-		top : 40px;
-		left : 1245px;
-		width : 62px;
-		height : 35px;
+		width : 3vw;
+		height : 3vh;
+		background-color : rgb(44, 62, 80);
+		color : white;
+		border-style : solid;
 		border-radius : 3px;
-		background-color : white;
-		color : black;
-		font-size : 150%;
-		font-family: 'Hanna';
+		border-color : rgb(44, 62, 80);
+	}
+	.input-delete-title input:hover {
+		background-color : rgb(26, 37, 47);
+		outline : rgb(26, 37, 47);
 	}
 </style>
 </head>
 <body>
-	<div id = "calendar"></div>
 	<form method = "GET" name = "vacationInputForm" action = "vacation_input_form" onsubmit="return input_check()">
 		<input type = "hidden" id = "vacation_input_name" class = "vacation_input_name" name = "vacation_input_name" value = "" />
 		<input type = "hidden" id = "vacation_input_month" class = "vacation_input_month" name = "vacation_input_month" value = "" />
 		<input type = "hidden" id = "vacation_input_day" class = "vacation_input_day" name = "vacation_input_day" value = "" />
-		<input type = "submit" id = "vacation_input_button" class = "vacation_input_button" value = "입력"/>
+		<div class = "input-delete-title">
+			<input type = "submit" id = "vacation_input_button" class = "vacation_input_button" value = "입력"/>
+		</div>
 	</form>
 	<form method = "GET" name = "vacationDeleteForm" action = "vacation_delete_form" onsubmit="return delete_check()">
 		<input type = "hidden" id = "vacation_delete_name" class = "vacation_delete_name" name = "vacation_delete_name" value = "" />
 		<input type = "hidden" id = "vacation_delete_month" class = "vacation_delete_month" name = "vacation_delete_month" value = "" />
 		<input type = "hidden" id = "vacation_delete_day" class = "vacation_delete_day" name = "vacation_delete_day" value = "" />
-		<input type = "submit" id = "vacation_delete_button" class = "vacation_delete_button" value = "삭제"/>
+		<div class = "input-delete-title">
+			<input type = "submit" id = "vacation_delete_button" class = "vacation_delete_button" value = "삭제"/>
+		</div>
 	</form>
+	<div id = "calendar"></div>
 </body>
 </html>
