@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	<mapper namespace = "jung.spring.mybatis.MemberMapper">
+		<resultMap type = "jung.spring.vo.UserInfoVO" id = "MemberResultMap">
+			<result property = "count" column = "COUNT"/>	
+			<result property = "name" column = "NAME"/>
+			<result property = "month" column = "MONTH"/>
+			<result property = "day" column = "DAY"/>
+		</resultMap>
+		<!-- resultMap = "MemberResultMap" -->
+
+		<select id = "getVacations" resultType = "user">
+			SELECT * FROM vacation
+		</select>
+		
+		<insert id = "addVacation" parameterType = "map">
+			INSERT INTO vacation VALUES (count_seq.nextval, #{vacation_name}, #{vacation_month}, #{vacation_day})
+		</insert>
+		
+		<delete id="removeVacation" parameterType = "map">
+			DELETE vacation WHERE name = #{vacation_name} and month = #{vacation_month} and day = #{vacation_day}
+		</delete>
+	</mapper>
