@@ -12,7 +12,7 @@
 		<!-- resultMap = "MemberResultMap" -->
 
 		<select id = "getVacations" resultType = "user">
-			SELECT * FROM vacation
+			SELECT * FROM vacation ORDER BY name ASC, month ASC, day ASC
 		</select>
 		
 		<insert id = "addVacation" parameterType = "map">

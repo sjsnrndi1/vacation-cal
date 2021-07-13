@@ -8,8 +8,8 @@ public interface UserInfoDAO {
 
 	ArrayList<UserInfoVO> getVacation(); //»ﬁ∞° ¡∂»∏
 
-	void addVacation(String vacation_name, int vacation_month, int vacation_day); //»ﬁ∞° √ﬂ∞°
+	void addVacation(String vacation_name, int vacation_month, String vacation_day); //»ﬁ∞° √ﬂ∞°
 
-	void removeVacation(String vacation_name, int vacation_month, int vacation_day); //»ﬁ∞° ªË¡¶
+	void removeVacation(String vacation_name, int vacation_month, String vacation_day); //»ﬁ∞° ªË¡¶
 	
 }

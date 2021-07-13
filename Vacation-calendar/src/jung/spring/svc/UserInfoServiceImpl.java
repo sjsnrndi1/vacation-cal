@@ -26,7 +26,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 	/***** »ﬁ∞° √ﬂ∞° 
 	 * @return *****/
 	@Override
-	public void addVacation(String vacation_name, int vacation_month, int vacation_day) {
+	public void addVacation(String vacation_name, int vacation_month, String vacation_day) {
 		// TODO Auto-generated method stub
 		userInfoDAO.addVacation(vacation_name, vacation_month, vacation_day);
 	}
@@ -35,7 +35,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 	/***** »ﬁ∞° ªË¡¶ 
 	 * @return *****/
 	@Override
-	public void removeVacation(String vacation_name, int vacation_month, int vacation_day) {
+	public void removeVacation(String vacation_name, int vacation_month, String vacation_day) {
 		// TODO Auto-generated method stub
 		userInfoDAO.removeVacation(vacation_name, vacation_month, vacation_day);
 	}

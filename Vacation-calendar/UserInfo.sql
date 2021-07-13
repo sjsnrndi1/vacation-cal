@@ -9,4 +9,4 @@ CREATE TABLE vacation (
 
 create SEQUENCE count_seq;
 
-select * from vacation
+select * from vacation order by name asc, month asc, day asc;

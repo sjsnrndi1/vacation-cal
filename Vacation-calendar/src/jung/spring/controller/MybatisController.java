@@ -21,8 +21,11 @@ public class MybatisController {
 	public ModelAndView defaultCalendar() {
 		ModelAndView mav = new ModelAndView();
 		List<UserInfoVO> vacationList = userInfoService.getVacations();
+		for(int i = 0; i < vacationList.size(); i++) {
+			
+		}
 		mav.addObject("vacationList", vacationList);
-		mav.setViewName("week-numbers");
+		mav.setViewName("month-view");
 		return mav;
 	}
 	/***** »ﬁ∞° ¡∂»∏ *****/
@@ -31,12 +34,12 @@ public class MybatisController {
 	 * @throws IOException *****/
 	@RequestMapping(value="/vacation_input_form")
 	public ModelAndView inputVacation(@RequestParam("vacation_input_name") String vacation_name, @RequestParam("vacation_input_month") int vacation_month,
-			@RequestParam("vacation_input_day") int vacation_day) {
+			@RequestParam("vacation_input_day") String vacation_day) {
 		ModelAndView mav = new ModelAndView();
 		userInfoService.addVacation(vacation_name, vacation_month, vacation_day);
 		List<UserInfoVO> vacationList = userInfoService.getVacations();
 		mav.addObject("vacationList", vacationList);
-		mav.setViewName("week-numbers");
+		mav.setViewName("month-view");
 		return mav;
 	}
 	/***** »ﬁ∞° √ﬂ∞° *****/
@@ -45,12 +48,12 @@ public class MybatisController {
 	 * @throws IOException *****/
 	@RequestMapping(value="/vacation_delete_form")
 	public ModelAndView deleteVacation(@RequestParam("vacation_delete_name") String vacation_name, @RequestParam("vacation_delete_month") int vacation_month,
-			@RequestParam("vacation_delete_day") int vacation_day) {
+			@RequestParam("vacation_delete_day") String vacation_day) {
 		ModelAndView mav = new ModelAndView();
 		userInfoService.removeVacation(vacation_name, vacation_month, vacation_day);
 		List<UserInfoVO> vacationList = userInfoService.getVacations();
 		mav.addObject("vacationList", vacationList);
-		mav.setViewName("week-numbers");
+		mav.setViewName("month-view");
 		return mav;
 	}
 	/***** »ﬁ∞° ªË¡¶ *****/
