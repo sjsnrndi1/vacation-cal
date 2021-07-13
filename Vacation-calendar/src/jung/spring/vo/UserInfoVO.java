@@ -5,7 +5,7 @@ public class UserInfoVO {
 	private String name;
 	private int month;
 	private int day;
-	
+	private int day_end;
 	
 	public int getCount() {
 		return count;
@@ -36,6 +36,13 @@ public class UserInfoVO {
 	}
 	public void setDay(int day) {
 		this.day = day;
+	}
+	
+	public int getDay_end() {
+		return day_end;
+	}
+	public void setDay_end(int day_end) {
+		this.day_end = day_end;
 	}
 	
 }

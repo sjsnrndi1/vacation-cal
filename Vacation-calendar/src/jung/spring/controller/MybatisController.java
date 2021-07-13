@@ -21,9 +21,6 @@ public class MybatisController {
 	public ModelAndView defaultCalendar() {
 		ModelAndView mav = new ModelAndView();
 		List<UserInfoVO> vacationList = userInfoService.getVacations();
-		for(int i = 0; i < vacationList.size(); i++) {
-			
-		}
 		mav.addObject("vacationList", vacationList);
 		mav.setViewName("month-view");
 		return mav;
