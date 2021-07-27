@@ -114,6 +114,30 @@
 				</c:choose>
 				},
 			</c:forEach>
+				{
+					title : "대체공휴일",
+					start : '2021-08-16',
+					end : '2021-08-17',
+					overlap: false,
+					display: 'background',
+					color: '#ff9f89'
+				},
+				{
+					title : "대체공휴일",
+					start : '2021-10-04',
+					end : '2021-10-05',
+					overlap: false,
+					display: 'background',
+					color: '#ff9f89'
+				},
+				{
+					title : "대체공휴일",
+					start : '2021-10-11',
+					end : '2021-10-12',
+					overlap: false,
+					display: 'background',
+					color: '#ff9f89'
+				}
 			]
 
 		});
@@ -187,6 +211,9 @@
 	}
 	.fc-daygrid-day-events .fc-sticky{
 		color : yellow;
+	}
+	.fc-event-title {
+		color : red;
 	}
 </style>
 </head>
