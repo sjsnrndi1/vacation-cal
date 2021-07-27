@@ -36,6 +36,7 @@ public class MybatisController {
 		userInfoService.addVacation(vacation_name, vacation_month, vacation_day);
 		List<UserInfoVO> vacationList = userInfoService.getVacations();
 		mav.addObject("vacationList", vacationList);
+		mav.addObject("vacation_month", vacation_month);
 		mav.setViewName("month-view");
 		return mav;
 	}
@@ -50,6 +51,7 @@ public class MybatisController {
 		userInfoService.removeVacation(vacation_name, vacation_month, vacation_day);
 		List<UserInfoVO> vacationList = userInfoService.getVacations();
 		mav.addObject("vacationList", vacationList);
+		mav.addObject("vacation_month", vacation_month);
 		mav.setViewName("month-view");
 		return mav;
 	}

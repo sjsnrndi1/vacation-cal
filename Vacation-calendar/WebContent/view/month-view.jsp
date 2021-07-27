@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,6 +36,7 @@
 				else {  return true; }v
 			default : alert("월 또는 일수가 이상함!"); return false;
 		}
+		
 	}
 	
 	function delete_check() {
@@ -67,11 +69,32 @@
 		var calendarEl = document.getElementById('calendar');
 
 		var calendar = new FullCalendar.Calendar(calendarEl, {
-		initialDate: '2021-07-13',
+			
+		<c:set var = "today" value = "<%= new java.util.Date() %>" />
+		
+		<fmt:formatDate var = "nowToday" value="${today}" pattern="yyyy-MM-dd" />
+		initialDate: "${nowToday}",
+		
+		<c:if test = "${vacation_month eq 7}">
+			initialDate: '2021-07-01',
+		</c:if>
+		<c:if test = "${vacation_month eq 8}">
+			initialDate: '2021-08-01',
+		</c:if>
+		<c:if test = "${vacation_month eq 9}">
+			initialDate: '2021-09-01',
+		</c:if>
+		<c:if test = "${vacation_month eq 10}">
+			initialDate: '2021-10-01',
+		</c:if>
+		<c:if test = "${vacation_month eq 11}">
+			initialDate: '2021-11-01',
+		</c:if>
+		
 		editable: true,
 		selectable: true,
 		businessHours: true,
-		dayMaxEvents: true, // allow "more" link when too many events
+		dayMaxEvents: true,
 		events: [
 			<c:forEach items = "${vacationList}" var = "vacation"> {
 				title: "${vacation.name}",
@@ -91,8 +114,10 @@
 				</c:choose>
 				},
 			</c:forEach>
-		]});
+			]
 
+		});
+		
 		calendar.render();
 	});
 
