@@ -10,3 +10,5 @@ CREATE TABLE vacation (
 create SEQUENCE count_seq;
 
 select * from vacation order by name asc, month asc, day asc;
+
+alter table vacation modify(name VARCHAR2(100));
